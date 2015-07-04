@@ -4,7 +4,7 @@
 	"name": "Unreal Engine 4 GitHub/Docs-Bridge",
 	"short_name": "UE4 Doc Bridge",
 	"description": "Bridge which allows for UE4-Docs to direcly link to the representative source file.",
-	"version": "0.1.0",
+	"version": "0.2.0",
 
 	"icons": {
 		"128": "icon.png"

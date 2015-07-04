@@ -79,4 +79,8 @@ function InitTool() {
 	});
 }
 
-InitTool();
+if (typeof GitHubAccessToken == "undefined") {
+	console.error("%c[UE4 Doc Bridge] %cYou haven't added your GitHub-token yet! See README.MD for details!", "font-weight: bold", "");
+} else {
+	InitTool();
+}
