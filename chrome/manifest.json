@@ -1,0 +1,35 @@
+{
+	"manifest_version": 2,
+
+	"name": "Unreal Engine 4 GitHub/Docs-Bridge",
+	"short_name": "UE4 Doc Bridge",
+	"description": "Bridge which allows for UE4-Docs to direcly link to the representative source file.",
+	"version": "0.1.0",
+
+	"icons": {
+		"128": "icon.png"
+	},
+
+	"permissions": [
+		"activeTab",
+		"tabs",
+		"background",
+		"https://docs.unrealengine.com/*",
+		"https://api.github.com/*"
+	],
+
+	"content_scripts": [{
+		"matches": ["https://docs.unrealengine.com/*"],
+		"js": ["js/inject.js"],
+		"run_at": "document_end"
+	}],
+
+	"web_accessible_resources": [
+	    "js/extend.js",
+	    "js/jq.js",
+	    "js/config.js",
+    	"js/main.js"
+  	],
+
+	"content_security_policy": "script-src 'self'; object-src 'self'"
+}

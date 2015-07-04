@@ -12,12 +12,12 @@ var AvailableBranches = [];
 var SelectElement;
 
 function InjectHTML() {
-	var newRow = $(document.querySelector(".normal-row").outerHTML);
+	var newRow = $(document.querySelector("#references .normal-row").outerHTML);
 		newRow.find(".name-cell p").html("Branch");
 		newRow.find(".desc-cell p").html("<select style='margin:0;' id='branch-selector' onchange='SelectChange(this.value)'></select>");
 		SelectElement = newRow.find("select");
 
-	$(".member-list tbody").prepend(newRow);
+	$("#references .member-list tbody").prepend(newRow);
 }
 
 function SelectChange(value) {
@@ -50,13 +50,13 @@ function UpdateHTML() {
 }
 
 function UpdateTable() {
-	$(".member-list > table tr").each(function (index, row) {
+	$("#references .member-list > table tr").each(function (index, row) {
 		switch($(row).find(".name-cell").text().toLowerCase().trim()) {
 			case "header":
 				var filename = $(row).find(".desc-cell").text().trim();
 				var newRow = $(document.querySelector(".normal-row").outerHTML);
-					newRow.find(".name-cell p").html("");
-					newRow.find(".desc-cell p").html("");
+					newRow.find(".name-cell").html("<p></p>");
+					newRow.find(".desc-cell").html("<p></p>");
 			case "source":
 				var filename = $(row).find(".desc-cell").text().trim();
 				var path = GitHubPath.format({
@@ -68,7 +68,6 @@ function UpdateTable() {
 				break;
 		}
 	});
-	
 }
 
 function InitTool() {
